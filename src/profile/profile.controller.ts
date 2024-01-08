@@ -5,6 +5,6 @@ export class ProfileController {
 
     @Get()
     profile(){
-        return {message :"Route is protected  "};
+        return {message :"this Route is protected  "};
     }
 }
