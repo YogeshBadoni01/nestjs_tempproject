@@ -1,12 +1,12 @@
 import { PassportStrategy } from "@nestjs/passport";
-import { ExtractJwt } from "passport-jwt";
-import { Strategy } from "passport-local";
-import { jwtConstant } from "./jwt.constant";
-import { Injectable } from "@nestjs/common";
+import { ExtractJwt,Strategy } from "passport-jwt";
+import { jwtConstant } from "./auth.constant";
+import { Injectable, Logger } from "@nestjs/common";
 
 @Injectable()
-export class jwtStrategy extends PassportStrategy(Strategy){
+export class JwtStrategy extends PassportStrategy(Strategy){
 
+    private logger = new Logger('jwtStrategy')
     constructor() {
         super({
           jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -17,7 +17,9 @@ export class jwtStrategy extends PassportStrategy(Strategy){
 
 
     async validate(payload:any){
-        return {sub : payload.id , email :  payload.email};
+        this.logger.log(`their are a payload error which is ${payload}`)
+        // return {id : payload.sub , email :  payload.email};
+        return {userId : payload.sub , email :  payload.email};
     }
 
 }
