@@ -6,10 +6,12 @@ import { TypeORMError } from 'typeorm';
 import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
 // import { UserModule } from './user/user.module';
-import { BookModule } from './book/book.module';
+// import { BookModule } from './book/book.module'; //book folder
 import { UserModule } from './user/userModule.module';
 import { User } from './user/entity/user.entity';
-import { Book } from './book/entities/book.entity';
+// import { Book } from './book/entities/book.entity'; //book folder
+import { Book } from './profile/entities/book.entity';
+
 import { ProfileModule } from './profile/profile.module';
 @Module({
   imports: [
@@ -25,7 +27,7 @@ import { ProfileModule } from './profile/profile.module';
       synchronize: true,
     }),
     AuthModule,
-    BookModule,
+    // BookModule,
     ProfileModule,
   ],
   // controllers: [AuthController],

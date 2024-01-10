@@ -15,7 +15,7 @@ export class AuthController {
         // return this.authServices.userValidation(loginDto.email,loginDto.password)
        
         async login(@Request() req: any){
-        this.logger.log(`${this.authServices.userValidation}`)
+        // this.logger.log(`${this.authServices.userValidation}`)
         return this.authServices.login(req.user)  
 
         // return this.authServices.validateUser(loginDto.email,loginDto.password)
